@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/parallelx/metrics"
+	"github.com/AlestackOverglow/parallelx/metrics"
 )
 
 // ErrorHandler is a function that handles errors from tasks
@@ -322,16 +322,16 @@ func (p *Pool) WithErrorHandler(handler ErrorHandler) *Pool {
 	return p
 }
 
-// Result представляет результат выполнения задачи
+// Result represents the result of task execution
 type Result struct {
 	Value interface{}
 	Err   error
 }
 
-// StreamTask представляет задачу, которая возвращает результат
+// StreamTask represents a task that returns a result
 type StreamTask func() (interface{}, error)
 
-// SubmitStream добавляет задачу, результат которой будет отправлен в канал
+// SubmitStream adds a task that will return a result in a channel
 func (p *Pool) SubmitStream(task StreamTask) chan Result {
 	resultChan := make(chan Result, 1)
 
@@ -344,7 +344,7 @@ func (p *Pool) SubmitStream(task StreamTask) chan Result {
 	return resultChan
 }
 
-// SubmitStreamWithPriority добавляет задачу с приоритетом, результат которой будет отправлен в канал
+// SubmitStreamWithPriority adds a task with priority, the result of which will be sent to the channel
 func (p *Pool) SubmitStreamWithPriority(task StreamTask, priority int) chan Result {
 	resultChan := make(chan Result, 1)
 
@@ -357,10 +357,10 @@ func (p *Pool) SubmitStreamWithPriority(task StreamTask, priority int) chan Resu
 	return resultChan
 }
 
-// BatchStreamTask представляет пакетную задачу, которая отправляет результаты в канал
+// BatchStreamTask represents a batch task that sends results to a channel
 type BatchStreamTask func(chan<- Result)
 
-// SubmitBatchStream добавляет задачу, которая может отправлять множество результатов
+// SubmitBatchStream adds a task that can send multiple results
 func (p *Pool) SubmitBatchStream(task BatchStreamTask) chan Result {
 	resultChan := make(chan Result)
 
@@ -372,7 +372,7 @@ func (p *Pool) SubmitBatchStream(task BatchStreamTask) chan Result {
 	return resultChan
 }
 
-// SubmitBatchStreamWithPriority добавляет задачу с приоритетом, которая может отправлять множество результатов
+// SubmitBatchStreamWithPriority adds a task with priority, which can send multiple results
 func (p *Pool) SubmitBatchStreamWithPriority(task BatchStreamTask, priority int) chan Result {
 	resultChan := make(chan Result)
 
