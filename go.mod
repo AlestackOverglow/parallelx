@@ -1,4 +1,4 @@
-module github.com/parallelx
+module github.com/AlestackOverglow/parallelx
 
 go 1.21
 

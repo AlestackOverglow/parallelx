@@ -22,7 +22,7 @@ High-performance concurrency library for Go that provides robust abstractions fo
 ## Installation
 
 ```bash
-go get github.com/parallelx
+go get github.com/AlestackOverglow/parallelx
 ```
 
 ## Quick Start

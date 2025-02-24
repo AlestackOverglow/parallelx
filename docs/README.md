@@ -12,7 +12,7 @@
 ## Installation
 
 ```bash
-go get github.com/parallelx
+go get github.com/AlestackOverglow/parallelx
 ```
 
 ## Core Components
