@@ -25,6 +25,10 @@ High-performance concurrency library for Go that provides robust abstractions fo
 go get github.com/AlestackOverglow/parallelx
 ```
 
+## Documentation
+
+For detailed documentation and examples, see [docs/README.md](docs/README.md)
+
 ## Quick Start
 
 ```go
@@ -44,10 +48,18 @@ result, err := cb.Execute(ctx, func() (Response, error) {
 })
 ```
 
-## Documentation
-
-For detailed documentation and examples, see [docs/README.md](docs/README.md)
-
+## TODO
+- Add a task queue size limit to Worker Pool
+- Implement rate limiting
+- Add timeouts for operations
+- Write benchmarks
+- Improve handling of slow subscribers in PubSub
+- Add a crash recovery mechanism
+- Expand documentation with godoc-examples
+- Add performance metrics
+- Implement a deferred task mechanism
+- Add support for context-sensitive timeouts
+  
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details 
